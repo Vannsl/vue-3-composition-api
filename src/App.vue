@@ -1,10 +1,8 @@
 <script setup lang="ts">
-import HelloWorld from './components/HelloWorld.vue'
 </script>
 
 <template>
   <main class="container mx-auto my-20 px-8">
-    <HelloWorld msg="Hello Vue 3 + TypeScript + Vite" />
   </main>
 </template>
 
