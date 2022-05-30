@@ -1,3 +1,80 @@
+<script lang="ts">
+  import { computed, defineComponent, ref } from 'vue'
+  import BaseButton from './BaseButton.vue'
+  import BaseHeading from './BaseHeading.vue'
+
+  function useGreeting(firstName: string, lastName: string) {
+    const greeting = 'Hello'
+    const fullName = computed(() => firstName + ' ' + lastName)
+
+    return {
+      greeting,
+      fullName,
+    }
+  }
+
+  function useItems() {
+    const items = ref([
+      {
+        id: 0,
+        name: 'Eggs',
+        count: 10,
+      },
+      {
+        id: 1,
+        name: 'Fresh Milk',
+        count: 1,
+      },
+      {
+        id: 2,
+        name: 'Bread',
+        count: 1,
+      },
+    ])
+
+    function deleteItem(id: number) {
+      items.value = items.value.filter((item) => item.id !== id)
+    }
+
+    return {
+      items,
+      deleteItem,
+    }
+  }
+
+  export default defineComponent({
+    name: 'Overview',
+    components: {
+      BaseButton,
+      BaseHeading,
+    },
+    props: {
+      firstName: {
+        type: String,
+        required: true,
+      },
+      lastName: {
+        type: String,
+        required: true,
+      },
+    },
+    setup(props) {
+      const { greeting, fullName } = useGreeting(
+        props.firstName,
+        props.lastName
+      )
+      const { items, deleteItem } = useItems()
+
+      return {
+        greeting,
+        fullName,
+        items,
+        deleteItem,
+      }
+    },
+  })
+</script>
+
 <template>
   <section>
     <BaseHeading> {{ greeting }} {{ fullName }}! </BaseHeading>
@@ -22,62 +99,6 @@
     <p v-else>All done 🎉</p>
   </section>
 </template>
-
-<script lang="ts">
-  import { defineComponent } from 'vue'
-  import BaseButton from './BaseButton.vue'
-  import BaseHeading from './BaseHeading.vue'
-
-  export default defineComponent({
-    name: 'MyDashboard',
-    components: {
-      BaseButton,
-      BaseHeading,
-    },
-    props: {
-      firstName: {
-        type: String,
-        required: true,
-      },
-      lastName: {
-        type: String,
-        required: true,
-      },
-    },
-    data: () => {
-      return {
-        greeting: 'Hello',
-        items: [
-          {
-            id: 0,
-            name: 'Eggs',
-            count: 10,
-          },
-          {
-            id: 1,
-            name: 'Fresh Milk',
-            count: 1,
-          },
-          {
-            id: 2,
-            name: 'Bread',
-            count: 1,
-          },
-        ],
-      }
-    },
-    computed: {
-      fullName: function () {
-        return `${this.firstName} ${this.lastName}`
-      },
-    },
-    methods: {
-      deleteItem: function (id: number) {
-        this.items = this.items.filter((item) => item.id !== id)
-      },
-    },
-  })
-</script>
 
 <style scoped>
   .list-enter-active,
