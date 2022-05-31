@@ -1,7 +1,11 @@
 <script setup lang="ts">
+  import { provide } from 'vue'
+  import store from './store'
   import MyDashboard from './components/MyDashboard.vue'
   import ItemList from './components/ItemList.vue'
   import TheNavbar from './components/TheNavbar.vue'
+
+  provide('store', store)
 </script>
 
 <template>

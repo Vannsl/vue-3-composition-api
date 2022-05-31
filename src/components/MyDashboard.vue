@@ -1,6 +1,5 @@
 <script setup lang="ts">
-  import { computed } from 'vue'
-  import { useItems } from '../composables/useItems'
+  import { computed, inject } from 'vue'
   import BaseButton from './BaseButton.vue'
   import BaseHeading from './BaseHeading.vue'
 
@@ -14,7 +13,7 @@
   const greeting = 'Hello'
   const fullName = computed(() => props.firstName + ' ' + props.lastName)
 
-  const { items, deleteItem } = useItems()
+  const store = inject('store')
 </script>
 
 <template>
@@ -22,20 +21,20 @@
     <BaseHeading> {{ greeting }} {{ fullName }}! </BaseHeading>
     <p class="mb-8">These are your items:</p>
     <TransitionGroup
-      v-if="items.length"
+      v-if="store.state.value.items.length"
       name="list"
       tag="ul"
       class="border rounded-lg overflow-hidden"
     >
       <li
-        v-for="item in items"
+        v-for="item in store.state.value.items"
         :key="item.id"
         class="flex items-center justify-between py-2 last:mb-0 p-2 odd:bg-white"
       >
         <div>
           {{ item.count }}x <strong>{{ item.name }}</strong>
         </div>
-        <BaseButton @click="deleteItem(item.id)"> ✓ Bought </BaseButton>
+        <BaseButton @click="store.deleteItem(item.id)"> ✓ Bought </BaseButton>
       </li>
     </TransitionGroup>
     <p v-else>All done 🎉</p>
