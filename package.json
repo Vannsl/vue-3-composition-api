@@ -10,8 +10,8 @@
     "format": "prettier .  --write"
   },
   "dependencies": {
-    "vue": "^3.2.25",
-    "@heroicons/vue": "^1.0.6"
+    "@heroicons/vue": "^1.0.6",
+    "vue": "^3.2.25"
   },
   "devDependencies": {
     "@headlessui/vue": "^1.6.4",
@@ -24,6 +24,7 @@
     "eslint": "^8.16.0",
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-vue": "^9.0.1",
+    "pinia": "^2.0.14",
     "postcss": "^8.4.14",
     "prettier": "^2.6.2",
     "tailwindcss": "^3.0.24",
