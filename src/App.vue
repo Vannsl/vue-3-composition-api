@@ -1,8 +1,15 @@
 <script setup lang="ts">
   import MyDashboard from './components/MyDashboard.vue'
+  import ItemList from './components/ItemList.vue'
+  import TheNavbar from './components/TheNavbar.vue'
 </script>
 
 <template>
+  <header>
+    <TheNavbar>
+      <ItemList />
+    </TheNavbar>
+  </header>
   <main class="container mx-auto my-20 px-8 text-center max-w-[540px]">
     <MyDashboard first-name="Vanessa" last-name="Otto" />
   </main>

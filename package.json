@@ -10,9 +10,11 @@
     "format": "prettier .  --write"
   },
   "dependencies": {
-    "vue": "^3.2.25"
+    "vue": "^3.2.25",
+    "@heroicons/vue": "^1.0.6"
   },
   "devDependencies": {
+    "@headlessui/vue": "^1.6.4",
     "@typescript-eslint/eslint-plugin": "^5.27.0",
     "@typescript-eslint/parser": "^5.27.0",
     "@vitejs/plugin-vue": "^2.3.3",
