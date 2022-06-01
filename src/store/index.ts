@@ -1,4 +1,9 @@
-import { ref, readonly } from 'vue'
+import { readonly, Ref, ref } from 'vue'
+
+export type RootStore = {
+  state: Ref<{ items: Item[] }>
+  deleteItem: (id: number) => void
+}
 
 const state = ref({
   items: [
@@ -20,6 +25,7 @@ const state = ref({
   ],
 })
 
+// Actions
 function deleteItem(id: number) {
   state.value.items = state.value.items.filter((item) => item.id !== id)
 }

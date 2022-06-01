@@ -1,5 +1,6 @@
 <script setup lang="ts">
   import { computed, inject } from 'vue'
+  import { RootStore } from '../store'
   import BaseButton from './BaseButton.vue'
   import BaseHeading from './BaseHeading.vue'
 
@@ -10,8 +11,7 @@
 
   const greeting = 'Hello'
   const fullName = computed(() => props.firstName + ' ' + props.lastName)
-
-  const store = inject('store')
+  const store = inject('store') as RootStore
 </script>
 
 <template>

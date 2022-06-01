@@ -1,8 +1,9 @@
 <script setup lang="ts">
   import { inject } from 'vue'
+  import { RootStore } from '../store'
   import BaseButton from './BaseButton.vue'
 
-  const store = inject('store')
+  const store = inject('store') as RootStore
 </script>
 
 <template>
