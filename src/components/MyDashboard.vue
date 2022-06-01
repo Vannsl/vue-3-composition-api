@@ -4,12 +4,10 @@
   import BaseButton from './BaseButton.vue'
   import BaseHeading from './BaseHeading.vue'
 
-  interface Props {
+  const props = defineProps<{
     firstName: string
     lastName: string
-  }
-
-  const props = defineProps<Props>()
+  }>()
 
   const greeting = 'Hello'
   const fullName = computed(() => props.firstName + ' ' + props.lastName)
