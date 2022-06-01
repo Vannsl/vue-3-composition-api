@@ -37,7 +37,7 @@
     lastName: string
   }>()
 
-  const greeting = 'hello'
+  const greeting = 'Hello'
   const fullName = computed(() => `${props.firstName} ${props.lastName}`)
   const { items, deleteItem } = useItems()
 </script>
