@@ -1,16 +1,9 @@
 <script setup lang="ts">
-<<<<<<< Updated upstream
   import { provide } from 'vue'
-=======
->>>>>>> Stashed changes
   import store from './store'
   import MyDashboard from './components/MyDashboard.vue'
   import ItemList from './components/ItemList.vue'
   import TheNavbar from './components/TheNavbar.vue'
-<<<<<<< Updated upstream
-=======
-  import { provide } from 'vue'
->>>>>>> Stashed changes
 
   provide('store', store)
 </script>
