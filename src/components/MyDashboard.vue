@@ -1,26 +1,11 @@
 <script setup lang="ts">
   import { computed, ref } from 'vue'
+  import dataItems from '../data/items'
   import BaseButton from './BaseButton.vue'
   import BaseHeading from './BaseHeading.vue'
 
   function useItems() {
-    const items = ref([
-      {
-        id: 0,
-        name: 'Eggs',
-        count: 10,
-      },
-      {
-        id: 1,
-        name: 'Fresh Milk',
-        count: 1,
-      },
-      {
-        id: 2,
-        name: 'Bread',
-        count: 1,
-      },
-    ])
+    const items = ref(dataItems)
 
     function deleteItem(id: number) {
       items.value = items.value.filter((item) => item.id !== id)
