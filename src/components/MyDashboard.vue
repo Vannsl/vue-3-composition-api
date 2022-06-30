@@ -1,3 +1,53 @@
+<script lang="ts">
+  import { computed, defineComponent, ref } from 'vue'
+  import dataItems from '../data/items'
+  import BaseButton from './BaseButton.vue'
+  import BaseHeading from './BaseHeading.vue'
+
+  function useItems() {
+    const items = ref(dataItems)
+    function deleteItem(id: number) {
+      items.value = items.value.filter((item) => item.id !== id)
+    }
+
+    return {
+      items,
+      deleteItem,
+    }
+  }
+
+  export default defineComponent({
+    name: 'MyDashboard',
+    components: {
+      BaseButton,
+      BaseHeading,
+    },
+    props: {
+      firstName: {
+        type: String,
+        required: true,
+      },
+      lastName: {
+        type: String,
+        required: true,
+      },
+    },
+    setup(props) {
+      const greeting = 'Hello'
+      const fullName = computed(() => `${props.firstName} ${props.lastName}`)
+
+      const { items, deleteItem } = useItems()
+
+      return {
+        greeting,
+        fullName,
+        items,
+        deleteItem,
+      }
+    },
+  })
+</script>
+
 <template>
   <section>
     <BaseHeading> {{ greeting }} {{ fullName }}! </BaseHeading>
@@ -22,47 +72,6 @@
     <p v-else>All done 🎉</p>
   </section>
 </template>
-
-<script lang="ts">
-  import { defineComponent } from 'vue'
-  import dataItems from '../data/items'
-  import BaseButton from './BaseButton.vue'
-  import BaseHeading from './BaseHeading.vue'
-
-  export default defineComponent({
-    name: 'MyDashboard',
-    components: {
-      BaseButton,
-      BaseHeading,
-    },
-    props: {
-      firstName: {
-        type: String,
-        required: true,
-      },
-      lastName: {
-        type: String,
-        required: true,
-      },
-    },
-    data: () => {
-      return {
-        greeting: 'Hello',
-        items: dataItems,
-      }
-    },
-    computed: {
-      fullName: function () {
-        return `${this.firstName} ${this.lastName}`
-      },
-    },
-    methods: {
-      deleteItem: function (id: number) {
-        this.items = this.items.filter((item) => item.id !== id)
-      },
-    },
-  })
-</script>
 
 <style scoped>
   .list-enter-active,
