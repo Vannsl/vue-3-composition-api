@@ -25,6 +25,7 @@
 
 <script lang="ts">
   import { defineComponent } from 'vue'
+  import dataItems from '../data/items'
   import BaseButton from './BaseButton.vue'
   import BaseHeading from './BaseHeading.vue'
 
@@ -47,23 +48,7 @@
     data: () => {
       return {
         greeting: 'Hello',
-        items: [
-          {
-            id: 0,
-            name: 'Eggs',
-            count: 10,
-          },
-          {
-            id: 1,
-            name: 'Fresh Milk',
-            count: 1,
-          },
-          {
-            id: 2,
-            name: 'Bread',
-            count: 1,
-          },
-        ],
+        items: dataItems,
       }
     },
     computed: {
