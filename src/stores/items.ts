@@ -1,25 +1,10 @@
 import { defineStore } from 'pinia'
+import dataItems from '../data/items'
 
 export const useItemsStore = defineStore('items', {
   state: () => {
     return {
-      items: [
-        {
-          id: 0,
-          name: 'Eggs',
-          count: 10,
-        },
-        {
-          id: 1,
-          name: 'Fresh Milk',
-          count: 1,
-        },
-        {
-          id: 2,
-          name: 'Bread',
-          count: 1,
-        },
-      ],
+      items: dataItems,
     }
   },
   actions: {
