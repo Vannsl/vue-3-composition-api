@@ -1,4 +1,5 @@
 import { readonly, Ref, ref } from 'vue'
+import dataItems from '../data/items'
 
 export type RootStore = {
   state: Ref<{ items: Item[] }>
@@ -6,23 +7,7 @@ export type RootStore = {
 }
 
 const state = ref({
-  items: [
-    {
-      id: 0,
-      name: 'Eggs',
-      count: 10,
-    },
-    {
-      id: 1,
-      name: 'Fresh Milk',
-      count: 1,
-    },
-    {
-      id: 2,
-      name: 'Bread',
-      count: 1,
-    },
-  ],
+  items: dataItems,
 })
 
 // Actions
