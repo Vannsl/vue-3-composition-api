@@ -25,7 +25,7 @@
 
 <script lang="ts">
   import { defineComponent } from 'vue'
-  import dataItems from '../data/items'
+  import dataItems from '../data/dataItems'
   import BaseButton from './BaseButton.vue'
   import BaseHeading from './BaseHeading.vue'
 
