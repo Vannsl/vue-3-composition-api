@@ -1,6 +1,6 @@
 <script setup lang="ts">
   import { computed, ref } from 'vue'
-  import dataItems from '../data/items'
+  import dataItems from '../data/dataItems'
   import BaseButton from './BaseButton.vue'
   import BaseHeading from './BaseHeading.vue'
 
