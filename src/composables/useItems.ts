@@ -1,5 +1,5 @@
 import { readonly, ref } from 'vue'
-import dataItems from '../data/items'
+import dataItems from '../data/dataItems'
 
 const items = ref(dataItems)
 
