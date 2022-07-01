@@ -1,5 +1,5 @@
 import { readonly, Ref, ref } from 'vue'
-import dataItems from '../data/items'
+import dataItems from '../data/dataItems'
 
 export type RootStore = {
   state: Ref<{ items: Item[] }>
