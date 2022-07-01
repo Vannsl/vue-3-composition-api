@@ -1,5 +1,5 @@
 import { defineStore } from 'pinia'
-import dataItems from '../data/items'
+import dataItems from '../data/dataItems'
 
 export const useItemsStore = defineStore('items', {
   state: () => {
